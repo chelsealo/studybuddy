@@ -1,60 +1,59 @@
 {% extends "dappx/base.html" %}
 {% load staticfiles %}
 {% block body_block %}
-<head>
-<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-
-  <body>
-    <div class="container">
+  <div class="container">
+    <div class="jumbotron">
       {% if registered %}
         <h1>Thank you for registering!</h1>
       {% else %}
-      <div class="row">
-        <div class="col-lg-10 col-xl-9 mx-auto">
-          <div class="card card-signin flex-row my-5">
-            <div class="card-img-left d-none d-md-flex">
-               <!-- Background image for card set in CSS! -->
-            </div>
-            <div class="card-body">
-              {% csrf_token %}
-              {{ user_form.as_p }}
-              {{ profile_form.as_p }}
-
-              <!-- this is the bootstrap template idk how to get it to work w the user_form.as_p and profile_form.as_p, also the style.css isn't importing..? -->
-              <h5 class="card-title text-center">Register</h5>
-              <form class="form-signin" enctype="multipart/form-data" method="POST">
-                <div class="form-label-group">
-                  <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
-                  <label for="inputUserame">Username</label>
-                </div>
-
-                <div class="form-label-group">
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-                  <label for="inputEmail">Email address</label>
-                </div>
-                
-                <hr>
-
-                <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                  <label for="inputPassword">Password</label>
-                </div>
-                
-                <div class="form-label-group">
-                  <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
-                  <label for="inputConfirmPassword">Confirm password</label>
-                </div>
-
-                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
-                <a class="d-block text-center mt-2 small" href="#">Sign In</a>
-
-              </form>
-              {% endif %}
-            </div>
-          </div>
-        </div>
-      </div>
+        <h1>Register Here</h1>
+        <h3>Just fill out the form.</h3>
+<form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {{ user_form.as_p }}
+          {{ profile_form.as_p }}
+          <input type="submit" name="" value="Register">
+        </form>
+        
+      {% endif %}
     </div>
-  </body>
-  {% endblock %}
+  </div>
+{% endblock %}
+
+
+<!-- this is the template I tried to use but idk how
+  This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
+
+<!-- <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card card-signin flex-row my-5">
+          <div class="card-img-left d-none d-md-flex"> -->
+             <!-- Background image for card set in CSS! -->
+          <!-- </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">Register</h5>
+            <form class="form-signin">
+              <div class="form-label-group">
+                <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
+                <label for="inputUserame">Username</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                <label for="inputEmail">Email address</label>
+              </div>
+              
+              <hr>
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="inputPassword">Password</label>
+              </div>
+              
+              <div class="form-label-group">
+                <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
+                <label for="inputConfirmPassword">Confirm password</label>
+              </div>
+ -->
