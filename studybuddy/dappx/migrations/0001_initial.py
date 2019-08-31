@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('grad_year', models.CharField(max_length=255, verbose_name='Graduation Year')),
                 ('classes', models.CharField(max_length=255, verbose_name='Class for Partner')),
                 ('profile_pic', models.ImageField(blank=True, upload_to='profile_pics')),
-                ('resume', models.FileField(blank=True, upload_to='resume')),
+                ('resume', models.FileField(blank=True, upload_to='resumes')),
                 ('portfolio_site', models.URLField(blank=True)),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
